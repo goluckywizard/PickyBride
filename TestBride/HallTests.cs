@@ -1,5 +1,7 @@
 using pickyPride2;
 using Moq;
+using PickyBride.Data.Entities;
+
 namespace TestBride;
 
 [TestFixture]

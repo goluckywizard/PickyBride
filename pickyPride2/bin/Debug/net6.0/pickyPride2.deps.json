@@ -8,10 +8,86 @@
     ".NETCoreApp,Version=v6.0": {
       "pickyPride2/1.0.0": {
         "dependencies": {
-          "Microsoft.Extensions.Hosting": "7.0.0"
+          "Microsoft.EntityFrameworkCore": "7.0.1",
+          "Microsoft.Extensions.Hosting": "7.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.1",
+          "PickyBride.Data": "1.0.0"
         },
         "runtime": {
           "pickyPride2.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore/7.0.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.1",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.1",
+          "Microsoft.Extensions.Caching.Memory": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Microsoft.Extensions.Logging": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.122.55819"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.1": {
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.122.55819"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.1": {},
+      "Microsoft.EntityFrameworkCore.InMemory/7.0.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.122.55819"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/7.0.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.122.55819"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/7.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Options": "7.0.0",
+          "Microsoft.Extensions.Primitives": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
         }
       },
       "Microsoft.Extensions.Configuration/7.0.0": {
@@ -351,6 +427,32 @@
           }
         }
       },
+      "Npgsql/7.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.1.0"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.1": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.1",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.1",
+          "Npgsql": "7.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "assemblyVersion": "7.0.1.0",
+            "fileVersion": "7.0.1.0"
+          }
+        }
+      },
       "System.Diagnostics.EventLog/7.0.0": {
         "runtime": {
           "lib/net6.0/System.Diagnostics.EventLog.dll": {
@@ -404,6 +506,16 @@
             "fileVersion": "7.0.22.51805"
           }
         }
+      },
+      "PickyBride.Data/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.1",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.1"
+        },
+        "runtime": {
+          "PickyBride.Data.dll": {}
+        }
       }
     }
   },
@@ -412,6 +524,55 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.EntityFrameworkCore/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uvzJkdmqbB50COlCiNaBjWc4cl3kHBO9P7glPk6wK8xyLrli4xeVip+pmMyT/kYc2shWm1YdxegxFqKeCvQXAA==",
+      "path": "microsoft.entityframeworkcore/7.0.1",
+      "hashPath": "microsoft.entityframeworkcore.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pPaoi2RHAkrsJ2kcGZGBiJFUXSS1LC+qET6HCn4hXP+X/kvIriJLv8lx6ddI6gTluGvm/lDgPAA0zZDXYaKf3A==",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.1",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4A4NFkPFoRMdry24Hjdb5/sOH3tU3hzFePTGnSg8P+VBrFp/EO8kcA4L0hBzwbXj2HGNL8I/quYyS5GVtb4EOg==",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.1",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AnIA16TihjWRTdK5uLcPQ6eAxd2x0hv5etXYUkVN9TdkaH2AuhILnDpdAlh6sTIVVDpygqveHl1rFmtvlcZk2w==",
+      "path": "microsoft.entityframeworkcore.inmemory/7.0.1",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-F4EYKRhtnkjxp4BhKF3XDn+D3AKok6KIRZYAfaj6knx80CsjFeEUxFpSoqlB9r7ZJTgz30f2oZpHOO4qasIkhA==",
+      "path": "microsoft.entityframeworkcore.relational/7.0.1",
+      "hashPath": "microsoft.entityframeworkcore.relational.7.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IeimUd0TNbhB4ded3AbgBLQv2SnsiVugDyGV1MvspQFVlA07nDC7Zul7kcwH5jWN3JiTcp/ySE83AIJo8yfKjg==",
+      "path": "microsoft.extensions.caching.abstractions/7.0.0",
+      "hashPath": "microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Memory/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xpidBs2KCE2gw1JrD0quHE72kvCaI3xFql5/Peb2GRtUuZX+dYPoK/NTdVMiM67Svym0M0Df9A3xyU0FbMQhHw==",
+      "path": "microsoft.extensions.caching.memory/7.0.0",
+      "hashPath": "microsoft.extensions.caching.memory.7.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/7.0.0": {
       "type": "package",
@@ -588,6 +749,20 @@
       "path": "microsoft.extensions.primitives/7.0.0",
       "hashPath": "microsoft.extensions.primitives.7.0.0.nupkg.sha512"
     },
+    "Npgsql/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+s2gUPA37wDy9B3mE7ZN8xhfnSrf56OCR8ELMZkEbNxk9MyWS54o7ttrngmu7s7/C2ldjAWMdggkpMMPCZsKSg==",
+      "path": "npgsql/7.0.1",
+      "hashPath": "npgsql.7.0.1.nupkg.sha512"
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8txq2CsPWvWO4azZSBmKLKmYsL6dkGrarX2hJZY0Djx6uWZJGH9W0OTE1oHqn+aC5L+xrzyS+TM3kiKw2gdXuA==",
+      "path": "npgsql.entityframeworkcore.postgresql/7.0.1",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.7.0.1.nupkg.sha512"
+    },
     "System.Diagnostics.EventLog/7.0.0": {
       "type": "package",
       "serviceable": true,
@@ -615,6 +790,11 @@
       "sha512": "sha512-DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
       "path": "system.text.json/7.0.0",
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
+    },
+    "PickyBride.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

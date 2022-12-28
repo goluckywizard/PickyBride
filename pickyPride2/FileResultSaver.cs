@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Options;
+using PickyBride.Data.Entities;
 
 namespace pickyPride2;
 

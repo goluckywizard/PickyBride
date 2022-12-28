@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pickyPride2", "pickyPride2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBride", "TestBride\TestBride.csproj", "{5D0E0177-6F45-4536-ABA3-02BCEF68A38C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickyBride.Data", "PickyBride.Data\PickyBride.Data.csproj", "{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{5D0E0177-6F45-4536-ABA3-02BCEF68A38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D0E0177-6F45-4536-ABA3-02BCEF68A38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D0E0177-6F45-4536-ABA3-02BCEF68A38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

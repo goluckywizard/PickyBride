@@ -1,30 +1,50 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using PickyBride.Data.Entities;
 
 namespace pickyPride2;
 
-public class Princess : IHostedService
+public class Princess : IPrincess
 {
-    private IHall? _hall;
-    private IFriend? _friend;
-    private IResultSaver? _resultSaver;
+    private IHall _hall;
+    private IFriend _friend;
+    private IResultSaver _resultSaver;
+    private ContenderRepository _repository;
+    private IContenderGenerator _contenderGenerator;
     
-    private IServiceScopeFactory _serviceScopeFactory;
-    private IHostApplicationLifetime _hostApplicationLifetime;
+    private IHostApplicationLifetime? _hostApplicationLifetime;
 
-    public Princess(IServiceScopeFactory serviceScopeFactory, IHostApplicationLifetime hostApplicationLifetime, IOptions<OutputFilePrefix> options)
+    /*public Princess(IServiceScopeFactory serviceScopeFactory, IHostApplicationLifetime hostApplicationLifetime, IOptions<OutputFilePrefix> options)
     {
         _serviceScopeFactory = serviceScopeFactory;
         _hostApplicationLifetime = hostApplicationLifetime;
         Console.WriteLine(options.Value);
-    }
-
-    public Princess(IHall? hall, IFriend? friend, IResultSaver? resultSaver)
+    }*/
+    public Princess(IHall hall, IFriend friend, IResultSaver resultSaver, ContenderRepository repository, IContenderGenerator contenderGenerator, IHostApplicationLifetime hostApplicationLifetime)
     {
         _hall = hall;
         _friend = friend;
         _resultSaver = resultSaver;
+        _repository = repository;
+        _contenderGenerator = contenderGenerator;
+        _hostApplicationLifetime = hostApplicationLifetime;
+    }
+
+    public Princess(IHall hall, IFriend friend, IResultSaver resultSaver, ContenderRepository repository, IContenderGenerator contenderGenerator)
+    {
+        _hall = hall;
+        _friend = friend;
+        _resultSaver = resultSaver;
+        _repository = repository;
+        _contenderGenerator = contenderGenerator;
+    }
+    public Princess(IHall hall, IFriend friend, IResultSaver resultSaver, IContenderGenerator contenderGenerator)
+    {
+        _hall = hall;
+        _friend = friend;
+        _resultSaver = resultSaver;
+        _contenderGenerator = contenderGenerator;
     }
 
     private const int GroomsCount = 100;
@@ -76,20 +96,57 @@ public class Princess : IHostedService
 
         return result;
     }
-    public void RunAsync()
-    {
-        using (IServiceScope scope = _serviceScopeFactory.CreateScope())
-        {
-            _hall = scope.ServiceProvider.GetService<IHall>();
-            _friend = scope.ServiceProvider.GetService<IFriend>();
-            _resultSaver = scope.ServiceProvider.GetService<IResultSaver>();
-            if (_hall is null || _friend is null || _resultSaver is null)
-            {
-                throw new ArgumentNullException();
-            }
 
-            ChooseContender();
+    public void GenerateContenders()
+    {
+        _repository.DeleteAll();
+        for (int i = 0; i < 100; i++)
+        {
+            _repository.SaveContenders(_contenderGenerator.GenerateGrooms(), i);
         }
+    }
+    public Contender? ReproduceAttempt(int attempt)
+    {
+        _hall.Contenders = new Queue<Contender>(_repository.GetContendersByAttempt(attempt));
+        return ChooseContender();
+    }
+
+    public double GetAverageResult()
+    {
+        int attemptsCount = _repository.getMaxAttempt() ?? -1;
+        if (attemptsCount == -1)
+        {
+            return -1;
+        }
+
+        int totalResults = 0;
+        for (int i = 0; i < attemptsCount; i++)
+        {
+            totalResults += ReproduceAttempt(i)?.Rating ?? 0;
+        }
+
+        return (double)totalResults / attemptsCount;
+    }
+    private void RunAsync()
+    {
+        string input = Console.ReadLine() ?? "avg";
+        if (input.Equals("generate"))
+        {
+            Console.WriteLine("generate");
+            GenerateContenders();
+        }
+
+        if (input.Equals("avg"))
+        {
+            var avg = GetAverageResult();
+            Console.WriteLine($"average is {avg}");
+        }
+        if (int.TryParse(input, out int attempt))
+        {
+            Console.WriteLine("reproduce");
+            ReproduceAttempt(attempt);
+        }
+        
         _hostApplicationLifetime.StopApplication();
     }
 

@@ -46,3 +46,13 @@ C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\obj\Debug\net6.0\pickyPride
 C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\obj\Debug\net6.0\pickyPride2.genruntimeconfig.cache
 C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\obj\Debug\net6.0\ref\pickyPride2.dll
 C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\appsettings.json
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\Npgsql.dll
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\PickyBride.Data.dll
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\PickyBride.Data.pdb
+C:\Users\sasha\RiderProjects\pickyPride2\pickyPride2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll

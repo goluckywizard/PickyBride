@@ -1,4 +1,9 @@
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
+using PickyBride.Data.Entities;
 using pickyPride2;
 
 namespace TestBride;
@@ -22,12 +27,18 @@ public class PrincessTests
             contenders[i] = new Contender("name", secondRatings[i - 50]);
         }
 
-        IResultSaver resultSaver = new FileResultSaver();
-        IFriend friend = new SimpleFriend();
-        var stabGenerator = Mock.Of<IContenderGenerator>(fb => 
+        var stabGenerator = Mock.Of<IContenderGenerator>(fb =>
             fb.GenerateGrooms() == contenders);
-        IHall hall = new Hall(stabGenerator, resultSaver);
-        Princess princess = new Princess(hall, friend, resultSaver);
+        
+        IServiceCollection services = new ServiceCollection();
+        services.AddScoped<IContenderGenerator>(sp => stabGenerator);
+        services.AddScoped<IHall, Hall>();
+        services.AddScoped<IFriend, SimpleFriend>();
+        services.AddScoped<IResultSaver, FileResultSaver>();
+        services.AddHostedService<Princess>();
+        var serviceProvider = services.BuildServiceProvider();
+        var princess = serviceProvider.GetRequiredService<IHostedService>() as Princess;
+
         Assert.Greater(princess.ChooseContender().Rating, 10);
     }
     [Test]
@@ -45,26 +56,36 @@ public class PrincessTests
         {
             contenders[i] = new Contender("name", firstRatings[i - 50]);
         }
-
-        IResultSaver resultSaver = new FileResultSaver();
-        IFriend friend = new SimpleFriend();
-        var stabGenerator = Mock.Of<IContenderGenerator>(fb => 
+    
+        var stabGenerator = Mock.Of<IContenderGenerator>(fb =>
             fb.GenerateGrooms() == contenders);
-        IHall hall = new Hall(stabGenerator, resultSaver);
-        Princess princess = new Princess(hall, friend, resultSaver);
+        
+        IServiceCollection services = new ServiceCollection();
+        services.AddScoped<IContenderGenerator>(sp => stabGenerator);
+        services.AddScoped<IHall, Hall>();
+        services.AddScoped<IFriend, SimpleFriend>();
+        services.AddScoped<IResultSaver, FileResultSaver>();
+        services.AddHostedService<Princess>();
+        var serviceProvider = services.BuildServiceProvider();
+        var princess = serviceProvider.GetRequiredService<IHostedService>() as Princess;
+        
         Assert.That(princess.ChooseContender() is null);
         //Assert.AreEqual( 10, princess.ChooseContender().Rating);
     }
-
+    
     [Test]
     public void Check_Exception_When_Empty_Hall()
     {
-        IResultSaver resultSaver = new FileResultSaver();
-        IFriend friend = new SimpleFriend();
         var stabGenerator = Mock.Of<IContenderGenerator>(fb => 
             fb.GenerateGrooms() == Array.Empty<Contender>());
-        IHall hall = new Hall(stabGenerator, resultSaver);
-        Princess princess = new Princess(hall, friend, resultSaver);
+        IServiceCollection services = new ServiceCollection();
+        services.AddScoped<IContenderGenerator>(sp => stabGenerator);
+        services.AddScoped<IHall, Hall>();
+        services.AddScoped<IFriend, SimpleFriend>();
+        services.AddScoped<IResultSaver, FileResultSaver>();
+        services.AddHostedService<Princess>();
+        var serviceProvider = services.BuildServiceProvider();
+        var princess = serviceProvider.GetRequiredService<IHostedService>() as Princess;
         Assert.Throws<ContenderNotFoundException>(() => princess.ChooseContender());
     }
 }

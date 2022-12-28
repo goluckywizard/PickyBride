@@ -1,29 +1,18 @@
-/*namespace pickyPride2;
+namespace PickyBride.Data.Entities;
+
 public class Contender
 {
-    public string Name
-    {
-        get;
-        set;
-    }
+    public long Id { get; set; }
+    public string Name { get; set; }
+    public int Rating { get; set; }
+    public int? Order { get; set; }
+    public int? Attempt { get; set; }
 
     public Contender(string name, int rating)
     {
         Name = name;
         Rating = rating;
     }
-
-    public int Rating
-    {
-        get;
-        set;
-    }
-
-    /*public int CompareTo(Contender? obj)
-    {
-        if(obj is null) throw new ArgumentException("Некорректное значение параметра");
-        return Rating - obj.Rating;
-    }#1#
 
     public static bool operator >(Contender op1, Contender op2)
     {
@@ -33,4 +22,4 @@ public class Contender
     {
         return op1.Rating < op2.Rating;
     }
-}*/
+}

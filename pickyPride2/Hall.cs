@@ -1,12 +1,13 @@
 using System.Collections;
 using Microsoft.Extensions.Hosting;
+using PickyBride.Data.Entities;
 
 namespace pickyPride2;
 
 public class Hall : IHall
 {
     private readonly IContenderGenerator _contenderGenerator;
-    private readonly Queue<Contender> _contenders;
+    public Queue<Contender> Contenders { get; set; }
     private readonly IResultSaver _resultSaver;
 
     /*public Hall(IContenderGenerator contenderGenerator)
@@ -21,14 +22,14 @@ public class Hall : IHall
         _resultSaver = resultSaver;
         Contender[] contenders = _contenderGenerator.GenerateGrooms();
         resultSaver.Contenders = contenders;
-        _contenders = new Queue<Contender>(contenders);
+        Contenders = new Queue<Contender>(contenders);
     }
 
     public Contender GetNextContender()
     {
         try
         {
-            return _contenders.Dequeue();
+            return Contenders.Dequeue();
         }
         catch (InvalidOperationException err)
         {
