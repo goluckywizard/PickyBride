@@ -8,7 +8,9 @@ public class Hall : IHall
 {
     private readonly IContenderGenerator _contenderGenerator;
     public Queue<Contender> Contenders { get; set; }
+    public Contender? LastContender { get; set; }
     private readonly IResultSaver _resultSaver;
+    public int? Attempt { get; set; }
 
     /*public Hall(IContenderGenerator contenderGenerator)
     {

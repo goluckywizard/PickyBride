@@ -6,6 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBride", "TestBride\Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickyBride.Data", "PickyBride.Data\PickyBride.Data.csproj", "{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickyBrideWeb", "PickyBrideWeb\PickyBrideWeb.csproj", "{6391093B-A534-4F14-B35C-B0BC4DF7FEAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickyBride.DataContracts", "PickyBride.DataContracts\PickyBride.DataContracts.csproj", "{8F730DD3-4072-481D-BE4A-DA92BC7248A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickyBride.HttpClient", "PickyBride.HttpClient\PickyBride.HttpClient.csproj", "{B866F3C6-11C4-4620-B1DC-0DCF045ACE69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +30,17 @@ Global
 		{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D7B050A-56A4-4B18-AB4A-7BF11DB7A4D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6391093B-A534-4F14-B35C-B0BC4DF7FEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6391093B-A534-4F14-B35C-B0BC4DF7FEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6391093B-A534-4F14-B35C-B0BC4DF7FEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6391093B-A534-4F14-B35C-B0BC4DF7FEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F730DD3-4072-481D-BE4A-DA92BC7248A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F730DD3-4072-481D-BE4A-DA92BC7248A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F730DD3-4072-481D-BE4A-DA92BC7248A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F730DD3-4072-481D-BE4A-DA92BC7248A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B866F3C6-11C4-4620-B1DC-0DCF045ACE69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B866F3C6-11C4-4620-B1DC-0DCF045ACE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B866F3C6-11C4-4620-B1DC-0DCF045ACE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B866F3C6-11C4-4620-B1DC-0DCF045ACE69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
